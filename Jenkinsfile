@@ -5,7 +5,7 @@ pipeline {
         stage('Terraform Apply') {
             steps {
                 script {
-                    sh 'terraform plan'
+                    sh 'source /etc/profile; terraform plan'
                 }
             }
         }
