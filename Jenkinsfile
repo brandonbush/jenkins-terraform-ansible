@@ -5,8 +5,7 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 script {
-                    sh 'source /etc/profile'
-                    sh 'cd terraform; terraform init; terraform plan'
+                    sh 'source /etc/profile; cd terraform; terraform init; terraform plan'
                 }
             }
         }
