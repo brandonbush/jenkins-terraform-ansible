@@ -20,7 +20,6 @@ resource "aws_instance" "test-server" {
   ami                         = "${var.ami}"
   instance_type               = "${var.instance_type}"
   associate_public_ip_address = true
-  iam_instance_profile        = "${var.instance_role}"
   vpc_security_group_ids      = ["${var.vpc_security_group_ids}"]
   key_name                    = "${var.key_name}"
   tags                        = "${local.tags}"
