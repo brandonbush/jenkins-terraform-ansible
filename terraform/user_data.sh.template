@@ -2,6 +2,6 @@
 
 amazon-linux-extras install ansible2
 
-yum install git
+yum install git -y
 
 ansible-pull ansible/bootstrap/${server-type}.yml -C master -U https://github.com/brandonbush/jenkins-terraform-ansible.git -i localhost -e "hostname=${hostname}"
