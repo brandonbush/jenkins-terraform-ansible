@@ -5,7 +5,7 @@ pipeline {
         stage('Terraform Init and Plan') {
             steps {
                 script {
-                    sh 'cd terraform; terraform init; terraform plan'
+                    sh 'source /etc/profile; cd terraform; terraform init; terraform plan'
                 }
             }
         }
@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy Terraform') {
             steps {
                 script {
-                    sh 'cd terraform; terraform apply -auto-approve'
+                    sh 'source /etc/profile; cd terraform; terraform apply -auto-approve'
                 }
             }
         }
