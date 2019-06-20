@@ -2,10 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('Terraform Init') {
+        stage('Terraform Init and Plan') {
             steps {
                 script {
-                    sh 'source /etc/profile; echo $PATH; cd terraform; terraform init; terraform plan'
+                    sh 'cd terraform; terraform init; terraform plan'
+                }
+            }
+        }
+        stage('Run Terraform Tests') {
+            steps {
+                echo 'Running tests here'
+            }
+        }
+        stage('Deploy Terraform') {
+            steps {
+                script {
+                    sh 'cd terraform; terraform apply -auto-approve'
                 }
             }
         }

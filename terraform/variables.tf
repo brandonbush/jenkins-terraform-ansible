@@ -19,6 +19,17 @@ variable "key_name" {
   default = "default-personal-kp"
 }
 
+variable "hostname" {
+  default = "ansible-test.example.bushbs.com"
+}
+
+variable "server-type" {
+  default = "webserver"
+}
+
 locals {
-  tags = "${map("terraform", "true", "test", "true")}" 
+  tags = "${map("terraform", "true", 
+                "test", "true",
+                "server-type", "${var.server-type}")
+           }" 
 }

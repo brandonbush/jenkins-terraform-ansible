@@ -8,14 +8,6 @@ terraform {
   }
 }
 
-data "template_file" "user_data_template" {
-    template = "${file("${path.module}/user_data.sh.template")}"
-    
-    # vars {
-
-    # }
-}
-
 resource "aws_instance" "test-server" {
   ami                         = "${var.ami}"
   instance_type               = "${var.instance_type}"
@@ -24,7 +16,7 @@ resource "aws_instance" "test-server" {
   key_name                    = "${var.key_name}"
   tags                        = "${local.tags}"
   volume_tags                 = "${local.tags}"
-  user_data                   = "${data.template_file.user_data_template.rendered}"
+  user_data                   = templatefile("${path.module}/user_data.sh.template", { hostname = "${var.hostname}", server-type = "${var.server-type}"})
   root_block_device {
     delete_on_termination = true
   }

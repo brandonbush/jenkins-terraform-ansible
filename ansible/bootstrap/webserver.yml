@@ -1,0 +1,7 @@
+---
+- hosts: all
+  vars:
+    hostname: {{ hostname }}
+  tasks:
+  - name: Set the hostname on the instance to the value passed in from Terraform
+    command: hostname "{{ hostname }}"
