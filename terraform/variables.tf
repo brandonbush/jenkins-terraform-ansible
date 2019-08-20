@@ -30,6 +30,11 @@ variable "server-type" {
 locals {
   tags = "${map("terraform", "true", 
                 "test", "true",
-                "server-type", "${var.server-type}")
+                "server-type", "${var.server-type}",
+                "checkout-name", var.checkout-name)
            }" 
+}
+
+variable "checkout-name" {
+  description = "Supplied by CI server, should be either the branch or tag to build this server from"
 }
