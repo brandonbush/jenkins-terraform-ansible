@@ -20,7 +20,7 @@ variable "key_name" {
 }
 
 variable "hostname" {
-  default = "ansible-test.example.bushbs.com"
+  default = "ansible-test-one.example.bushbs.com"
 }
 
 variable "server-type" {
