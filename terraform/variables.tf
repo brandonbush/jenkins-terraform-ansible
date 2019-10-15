@@ -31,7 +31,8 @@ locals {
   tags = "${map("terraform", "true", 
                 "test", "true",
                 "server-type", "${var.server-type}",
-                "checkout-name", var.checkout-name)
+                "checkout-name", var.checkout-name),
+                "Another Tag", "Yep"
            }" 
 }
 
