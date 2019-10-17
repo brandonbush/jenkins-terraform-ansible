@@ -1,6 +1,6 @@
 provider "aws" {
   region = "us-east-1"
-  profile = "personal"
+  //profile = "personal"
 }
 
 variable "ami" {
@@ -37,4 +37,8 @@ locals {
 
 variable "checkout-name" {
   description = "Supplied by CI server, should be either the branch or tag to build this server from"
+}
+
+variable "failover_az" {
+  default = null
 }

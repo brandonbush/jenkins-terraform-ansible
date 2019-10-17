@@ -8,7 +8,7 @@ terraform {
   }
 }
 
-resource "aws_instance" "test-server" {
+/*resource "aws_instance" "test-server" {
   ami                         = "${var.ami}"
   instance_type               = "${var.instance_type}"
   associate_public_ip_address = true
@@ -20,4 +20,8 @@ resource "aws_instance" "test-server" {
   root_block_device {
     delete_on_termination = true
   }
+}*/
+
+resource "null_resource" "test-variables" {
+  
 }
